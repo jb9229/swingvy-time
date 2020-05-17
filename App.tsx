@@ -11,7 +11,7 @@ import useCachedResources from './hooks/useCachedResources';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+function App() {
   const isLoadingComplete = useCachedResources();
 
   if (!isLoadingComplete) {

@@ -4,9 +4,9 @@ import createCtx from './CreateCtx';
 const [useCtx, Provider] = createCtx<Context>();
 
 interface Context {
-  gps: LocationData;
+  gps: LocationData | undefined;
   enabledGPS: boolean;
-  distanceFormOffice: number;
+  distanceFormOffice: number | undefined;
   validDistanceFromOffice: number;
   onClickClockIn: () => void;
   onClickClockOut: () => void;

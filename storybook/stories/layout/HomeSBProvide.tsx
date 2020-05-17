@@ -26,6 +26,12 @@ const HomeSBProvider = (props: Props): React.ReactElement =>
   const actions = {
     onClickClockIn: () => {
       Alert.alert('Success In');
+      /**
+       * restriction case
+       * 1. Max save count
+       *  a) criterion delete
+       * 2. How many show data at once
+       */
     },
     onClickClockOut: () => {
       Alert.alert('Success Out');
