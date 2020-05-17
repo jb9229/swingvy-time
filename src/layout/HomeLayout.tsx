@@ -1,10 +1,10 @@
 import * as React from 'react';
 
+import AttendanceHistory from '../molecules/AttendaceHistory';
 import Button from '../molecules/Button';
 import Clock from '../molecules/Clock';
 import ClockInOutPanel from '../organisms/ClockInOutPanel';
 import { ScrollView } from 'react-native-gesture-handler';
-import {i18n} from '../src/providers/ThemeProvider';
 import styled from 'styled-components/native';
 import { useHomeContext } from '../contexts/HomeContext';
 import { useThemeContext } from '../contexts/ThemeContext';
@@ -26,21 +26,22 @@ const ScrollWrap = styled(ScrollView).attrs(() => ({
 const Header = styled.View`
   flex-direction: row;
   justify-content: flex-end;
-  padding-left: 20;
-  padding-right: 20;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 const ClockWrap = styled.View`
   align-items: center;
 `;
 
 const ClockInOutPanelWrap = styled.View`
-  margin-top: 50;
+  margin-top: 50px;
 `;
+const AttendanceList = styled.View``;
 
 const HomeLayout = () => {
   const {language, changeLanguageType} = useThemeContext();
   const {
-    gps, enabledGPS, distanceFormOffice, validDistanceFromOffice,
+    gps, enabledGPS, distanceFormOffice, validDistanceFromOffice, attendanceList,
     onClickClockIn, onClickClockOut
   } = useHomeContext();
   return (
@@ -60,6 +61,11 @@ const HomeLayout = () => {
             onClickClockOut={onClickClockOut}
           />
         </ClockInOutPanelWrap>
+        <AttendanceList>
+          {attendanceList.map((attendance) => {
+            <AttendanceHistory attendance={attendance} />
+          })}
+        </AttendanceList>
       </ScrollWrap>
     </Container>
   )

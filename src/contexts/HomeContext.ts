@@ -1,3 +1,4 @@
+import { Attendance } from '../Home/types';
 import { LocationData } from '../providers/HomeProvider';
 import createCtx from './CreateCtx';
 
@@ -8,6 +9,7 @@ interface Context {
   enabledGPS: boolean;
   distanceFormOffice: number | undefined;
   validDistanceFromOffice: number;
+  attendanceList: Array<Attendance>;
   onClickClockIn: () => void;
   onClickClockOut: () => void;
 }

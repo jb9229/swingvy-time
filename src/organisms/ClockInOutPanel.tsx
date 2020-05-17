@@ -57,9 +57,9 @@ const CommandWrap = styled.View`
 `;
 
 interface Props {
-  gps: LocationData;
+  gps: LocationData | undefined;
   enabledGPS: boolean;
-  distanceFormOffice: number;
+  distanceFormOffice: number | undefined;
   validDistanceFromOffice: number;
   onClickClockIn: () => void;
   onClickClockOut: () => void;
