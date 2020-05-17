@@ -11,8 +11,22 @@ const STORAGE_KEY_LOCALE = 'LOCALE_LANGUAGE';
 
 // Set the key-value pairs for the different languages you want to support.
 i18n.translations = {
-  en: { welcome: 'Hello', name: 'jinbeom' },
-  kr: { welcome: '안녕하세요' },
+  en: {
+    welcome: 'Hello',
+    gps: {
+      KEY1: 'Current Position', KEY2: 'Your are 10 meter away from office.',
+      KEY3: 'GPS is enabled', KEY4: 'GPS is disabled', KEY5: 'You arrived',
+      KEY6: 'Out Of Lange', KEY7: 'Clock In', KEY8: 'Clock Out'
+      }
+  },
+  kr: {
+    welcome: '안녕하세요',
+    gps: {
+      KEY1: '현재 위치', KEY2: 'Your are 10 meter away from office.',
+      KEY3: 'GPS 수신중~', KEY4: 'GPS 수신실패!', KEY5: '도착했습니다',
+      KEY6: '벗어남', KEY7: '출근', KEY8: '퇴근'
+    }
+  },
 };
 
 interface Props {

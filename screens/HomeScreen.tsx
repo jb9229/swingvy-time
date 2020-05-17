@@ -4,6 +4,8 @@ import * as WebBrowser from 'expo-web-browser';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import Button from '../src/molecules/Button';
+import Clock from '../src/molecules/Clock';
+import ClockInOutPanel from '../src/organisms/ClockInOutPanel';
 import { MonoText } from '../components/StyledText';
 import { ScrollView } from 'react-native-gesture-handler';
 import {i18n} from '../src/providers/ThemeProvider';
@@ -30,6 +32,11 @@ const Header = styled.View`
   padding-left: 20;
   padding-right: 20;
 `;
+const ClockWrap = styled.View`
+  align-items: center;
+`;
+
+const GPSWrap = styled.View``;
 
 export default function HomeScreen() {
   const { language, changeLanguageType } = useThemeContext();
@@ -39,6 +46,12 @@ export default function HomeScreen() {
         <Header>
           <Button text={language === 'kr' ? 'KR' : 'EN'} onClick={() => {changeLanguageType(language === 'kr' ? 'en' : 'kr' )}} />
         </Header>
+        <ClockWrap>
+          <Clock />
+        </ClockWrap>
+        <GPSWrap>
+          <ClockInOutPanel />
+        </GPSWrap>
       </ScrollWrap>
 
       <View style={styles.tabBarInfoContainer}>
