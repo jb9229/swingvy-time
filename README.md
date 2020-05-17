@@ -1,10 +1,8 @@
 # Development of Geolocation module for Swingvy Time & Attendance app
 
 # UI Implements
-1. StyleText
-2. Localization Provider
-  + [] Multi Font
-3. Round Button Molecule(disabled)
+1. [O]Localization Provider
+2. Round Button Molecule(disabled)
 4. Current Time Molecule
 4. GPS Icon Molecules(disabled)
 5. Current Position Organism

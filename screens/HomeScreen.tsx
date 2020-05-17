@@ -1,25 +1,45 @@
 import * as React from 'react';
 import * as WebBrowser from 'expo-web-browser';
 
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import Button from '../src/molecules/Button';
 import { MonoText } from '../components/StyledText';
 import { ScrollView } from 'react-native-gesture-handler';
 import {i18n} from '../src/providers/ThemeProvider';
+import styled from 'styled-components/native';
 import { useThemeContext } from '../src/contexts/ThemeContext';
+
+const Container = styled.View`
+  flex: 1;
+  background-color: #fff;
+`;
+
+const ScrollWrap = styled(ScrollView).attrs(() => ({
+  contentContainerStyle: {
+    paddingTop: 30
+  }
+}))`
+  flex: 1;
+  background-color: #fff;
+`;
+
+const Header = styled.View`
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-left: 20;
+  padding-right: 20;
+`;
 
 export default function HomeScreen() {
   const { language, changeLanguageType } = useThemeContext();
-  console.log('>>> HomeScreen rerener~~')
   return (
-    <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={() => changeLanguageType(language === 'kr' ? 'en' : 'kr' )} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>{i18n.t('welcome')} {i18n.t('name')}</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+    <Container>
+      <ScrollWrap>
+        <Header>
+          <Button text={language === 'kr' ? 'KR' : 'EN'} onClick={() => {changeLanguageType(language === 'kr' ? 'en' : 'kr' )}} />
+        </Header>
+      </ScrollWrap>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
@@ -28,7 +48,7 @@ export default function HomeScreen() {
           <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
         </View>
       </View>
-    </View>
+    </Container>
   );
 }
 
@@ -70,19 +90,12 @@ function handleHelpPress() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
     fontSize: 14,
     lineHeight: 19,
     textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
   },
   welcomeContainer: {
     alignItems: 'center',
