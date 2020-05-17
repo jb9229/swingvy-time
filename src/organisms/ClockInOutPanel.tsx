@@ -16,14 +16,14 @@ const Header = styled.View`
 `;
 const GPSIconWrap = styled.View`
   position: absolute;
-  top: -38;
+  top: -38px;
   background-color: white;
 `;
 const Contents = styled.View`
   border-bottom-width: 1px;
   border-top-width: 1px;
-  padding-top: 20;
-  padding-bottom: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 const Content = styled.View`
   flex-direction: row;

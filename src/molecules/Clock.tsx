@@ -3,29 +3,29 @@ import * as React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
-  width: 200;
-  height: 200;
-  border-width: 3;
+  width: 200px;
+  height: 200px;
+  border-width: 3px;
   border-color: gray;
-  border-radius: 100;
+  border-radius: 100px;
   justify-content: center;
   align-items: center;
 `;
 const InnerCircle = styled.View`
-  width: 180;
-  height: 180;
-  border-width: 1;
+  width: 180px;
+  height: 180px;
+  border-width: 1px;
   border-color: gray;
-  border-radius: 100;
+  border-radius: 100px;
   justify-content: center;
   align-items: center;
 `;
 const Time = styled.Text`
-  font-size: 48;
-  line-height: 88;
+  font-size: 48px;
+  line-height: 88px;
 `;
 const AmPm = styled.Text`
-  font-size: 28;
+  font-size: 28px;
 `;
 const Clock: React.FC = () => {
   const [date, setDate] = React.useState<Date>(new Date());

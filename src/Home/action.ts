@@ -21,7 +21,15 @@ export const attendance = (date: Date, latitude: number, longgitude: number, clo
         AsyncStorage.getItem(STORAGE_KEY_ATTENDANCE)
         .then((data) => {
           const attendanceList = new Array<Attendance>();
-          if (data) { const dataList = JSON.parse(data); dataList.forEach((history: Attendance) => { const hAttendance = convertAttendanceData(history); if (hAttendance) {attendanceList.push(hAttendance)} })
+          if (data)
+          {
+            const dataList = JSON.parse(data);
+            dataList.forEach((history: Attendance) =>
+              {
+                const hAttendance = convertAttendanceData(history);
+                if (hAttendance) { attendanceList.push(hAttendance) } 
+              })
+          }
           const dateStr = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
           const address = geoData.features.properties.address;
           const newAttendance = new Attendance(dateStr, address, clockType);
