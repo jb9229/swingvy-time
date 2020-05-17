@@ -2,30 +2,33 @@ import * as React from 'react';
 
 import styled from 'styled-components/native';
 
+interface StyleProps {
+  disabled?: boolean;
+}
 const ButtonTO = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 0 12px;
-  border-width: 1;
-  height: 30;
-  border-color: gray;
-  border-radius: 30;
-  min-width: 77;
+  padding: 0px 12px;
+  border-width: 1px;
+  height: 30px;
+  border-color: ${(props: StyleProps): string => props.disabled ? 'gray' : 'black'};
+  border-radius: 30px;
+  min-width: 77px;
 `;
 const ButtonText = styled.Text`
-  color: gray;
+  color: ${(props: StyleProps): string => props.disabled ? 'gray' : 'black'};
 `;
 
 interface Props {
-  onClick: () => void;
   text: string;
   disabled?: boolean;
+  onClick?: () => void;
 }
 const Button: React.FC<Props> = (props) => {
   return (
     <ButtonTO onPress={props.onClick} disabled={props.disabled}>
-      <ButtonText>{props.text}</ButtonText>
+      <ButtonText disabled={props.disabled}>{props.text}</ButtonText>
     </ButtonTO>
   );
 };

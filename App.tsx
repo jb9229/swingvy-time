@@ -38,3 +38,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+
+const STORYBOOK_START = true;
+export default (STORYBOOK_START
+  ? require('./storybook').default
+  : App);
